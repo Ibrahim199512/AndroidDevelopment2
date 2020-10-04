@@ -14,6 +14,7 @@ import java.util.ArrayList;
 class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.MyViewHolder> {
 
     ArrayList<Student> studentsList;
+    StudentInterface studentInterface;
 
     class MyViewHolder extends RecyclerView.ViewHolder {
         TextView name, age;
@@ -25,8 +26,9 @@ class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.MyViewHolder>
         }
     }
 
-    public StudentsAdapter(ArrayList<Student> studentsList) {
+    public StudentsAdapter(ArrayList<Student> studentsList,StudentInterface studentInterface) {
         this.studentsList = studentsList;
+        this.studentInterface = studentInterface;
     }
 
     @NonNull
@@ -38,9 +40,15 @@ class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.MyViewHolder>
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
         holder.name.setText(studentsList.get(position).getName());
         holder.age.setText(studentsList.get(position).getAge());
+        holder.name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                studentInterface.sendSomeText(""+studentsList.get(position).getName());
+            }
+        });
         Log.d("position", position + "");
 
 

@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -56,8 +57,15 @@ public class RecyclerViewActivity extends AppCompatActivity {
         RecyclerView recyclerview = findViewById(R.id.recyclerview);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL
                 , false);
-        StudentsAdapter studentsAdapter = new StudentsAdapter(studentList);
+        StudentsAdapter studentsAdapter = new StudentsAdapter(studentList, new StudentInterface() {
+            @Override
+            public void sendSomeText(String text) {
+                Toast.makeText(RecyclerViewActivity.this, "" + text, Toast.LENGTH_SHORT).show();
+            }
+        });
         recyclerview.setLayoutManager(layoutManager);
         recyclerview.setAdapter(studentsAdapter);
+
+
     }
 }
