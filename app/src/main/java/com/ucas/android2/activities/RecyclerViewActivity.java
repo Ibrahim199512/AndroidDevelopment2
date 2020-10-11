@@ -1,4 +1,4 @@
-package com.ucas.android2;
+package com.ucas.android2.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -6,6 +6,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.widget.Toast;
+
+import com.ucas.android2.R;
+import com.ucas.android2.adapters.StudentsAdapter;
+import com.ucas.android2.interfaces.StudentInterface;
+import com.ucas.android2.modules.Student;
 
 import java.util.ArrayList;
 

@@ -1,15 +1,15 @@
-package com.ucas.android2;
+package com.ucas.android2.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
+import com.ucas.android2.R;
+import com.ucas.android2.adapters.ImagesAdapter;
 
 import java.util.ArrayList;
 

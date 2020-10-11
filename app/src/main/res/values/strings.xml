@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Android Development2</string>
+    <string name="CUSTEM_ACTION">com.ibrahim.alwadiya.CUSTEM_ACTION</string>
 </resources>

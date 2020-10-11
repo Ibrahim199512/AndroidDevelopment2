@@ -1,10 +1,12 @@
-package com.ucas.android2;
+package com.ucas.android2.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+
+import com.ucas.android2.R;
 
 public class MainActivity extends AppCompatActivity {
 

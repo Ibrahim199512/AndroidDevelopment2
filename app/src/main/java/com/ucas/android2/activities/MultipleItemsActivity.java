@@ -1,10 +1,13 @@
-package com.ucas.android2;
+package com.ucas.android2.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+
+import com.ucas.android2.R;
+import com.ucas.android2.adapters.MultipleItemsAdapter;
 
 import java.util.ArrayList;
 

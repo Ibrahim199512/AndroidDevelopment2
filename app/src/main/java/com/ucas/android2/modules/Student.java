@@ -1,6 +1,6 @@
-package com.ucas.android2;
+package com.ucas.android2.modules;
 
-class Student {
+public class Student {
     private String name;
     private String age;
 

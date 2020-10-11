@@ -1,4 +1,4 @@
-package com.ucas.android2;
+package com.ucas.android2.adapters;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.ucas.android2.R;
 
 import java.util.ArrayList;
 
