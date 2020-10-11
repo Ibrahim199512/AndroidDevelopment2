@@ -3,6 +3,8 @@
     package="com.ucas.android2">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
 
     <application
         android:allowBackup="true"
@@ -11,19 +13,37 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MultipleItemsActivity">
+
+        <receiver
+            android:name=".receivers.SmsReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".receivers.MyReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.ibrahim.alwadiya.CUSTEM_ACTION" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".activities.BroadcastReceiverActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ImageGridLayoutManagerActivity"></activity>
-        <activity android:name=".RecyclerViewActivity">
-
-        </activity>
-        <activity android:name=".MainActivity2" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".activities.MultipleItemsActivity" />
+        <activity android:name=".activities.ImageGridLayoutManagerActivity" />
+        <activity android:name=".activities.RecyclerViewActivity" />
+        <activity android:name=".activities.MainActivity2" />
+        <activity android:name=".activities.MainActivity" />
     </application>
 
 </manifest>
