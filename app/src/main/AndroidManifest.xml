@@ -13,6 +13,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <service
+            android:name=".services.MusicPlayerService"
+            android:enabled="true"
+            android:exported="true"></service>
+
+        <activity android:name=".activities.MusicPlayerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.TestMyServiceActivity"></activity>
+
+        <service
+            android:name=".services.MyService"
+            android:enabled="true"
+            android:exported="true" />
 
         <receiver
             android:name=".receivers.SmsReceiver"
@@ -22,7 +40,6 @@
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
-
         <receiver
             android:name=".receivers.MyReceiver"
             android:enabled="true"
@@ -32,13 +49,7 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".activities.BroadcastReceiverActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".activities.BroadcastReceiverActivity" />
         <activity android:name=".activities.MultipleItemsActivity" />
         <activity android:name=".activities.ImageGridLayoutManagerActivity" />
         <activity android:name=".activities.RecyclerViewActivity" />
