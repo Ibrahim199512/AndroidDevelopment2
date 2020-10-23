@@ -13,19 +13,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <service
-            android:name=".services.MusicPlayerService"
-            android:enabled="true"
-            android:exported="true"></service>
-
-        <activity android:name=".activities.MusicPlayerActivity">
+        <activity android:name=".activities.MainActivity3"></activity>
+        <activity android:name=".activities.ErrorsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.TestMyServiceActivity"></activity>
+
+        <service
+            android:name=".services.MusicPlayerService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".activities.MusicPlayerActivity"></activity>
+        <activity android:name=".activities.TestMyServiceActivity" />
 
         <service
             android:name=".services.MyService"
