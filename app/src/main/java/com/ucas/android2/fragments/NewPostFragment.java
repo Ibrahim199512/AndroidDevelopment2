@@ -4,11 +4,15 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.ucas.android2.EventBus.MyEvent;
 import com.ucas.android2.R;
+
+import org.greenrobot.eventbus.EventBus;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -51,6 +55,7 @@ public class NewPostFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.e("NewPostFragment", "onCreate");
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -61,6 +66,14 @@ public class NewPostFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_new_post, container, false);
+        View view = inflater.inflate(R.layout.fragment_new_post, container, false);
+        view.findViewById(R.id.text).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Cart Number
+                EventBus.getDefault().post(new MyEvent(2, 1));
+            }
+        });
+        return view;
     }
 }
