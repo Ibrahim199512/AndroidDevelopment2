@@ -8,7 +8,9 @@ import android.util.Log;
 import android.view.View;
 
 import com.ucas.android2.R;
+import com.ucas.android2.database.AppDatabase;
 import com.ucas.android2.database.DatabaseClient;
+import com.ucas.android2.interfaces.TestItemDao;
 import com.ucas.android2.modules.TestItem;
 import com.ucas.android2.modules.User;
 
@@ -31,9 +33,9 @@ public class RoomDatabaseSimpleExampleActivity extends AppCompatActivity {
         findViewById(R.id.read).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                readAll();
-                ReadUsingAsyncTask readUsingAsyncTask = new ReadUsingAsyncTask();
-                readUsingAsyncTask.execute();
+                readAll();
+//                ReadUsingAsyncTask readUsingAsyncTask = new ReadUsingAsyncTask();
+//                readUsingAsyncTask.execute();
             }
         });
 
@@ -77,10 +79,15 @@ public class RoomDatabaseSimpleExampleActivity extends AppCompatActivity {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                List<TestItem> testItems = DatabaseClient.getInstance(getApplicationContext())
-                        .getAppDatabase()
-                        .testItemDao()
-                        .getAll();
+                DatabaseClient databaseClient = DatabaseClient.getInstance(getApplicationContext());
+                AppDatabase appDatabase = databaseClient.getAppDatabase();
+                TestItemDao testItemDao = appDatabase.testItemDao();
+                List<TestItem> testItems  = testItemDao.getAll();
+
+//                List<TestItem> testItems = DatabaseClient.getInstance(getApplicationContext())
+//                        .getAppDatabase()
+//                        .testItemDao()
+//                        .getAll();
                 for (int i = 0; i < testItems.size(); i++) {
                     Log.e("id", testItems.get(i).getId() + "");
                     Log.e("Title", testItems.get(i).getTitle() + "");

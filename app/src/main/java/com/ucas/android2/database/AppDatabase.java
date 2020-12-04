@@ -1,6 +1,7 @@
 package com.ucas.android2.database;
 
 import androidx.room.Database;
+import androidx.room.Insert;
 import androidx.room.RoomDatabase;
 
 import com.ucas.android2.interfaces.AccountDao;
