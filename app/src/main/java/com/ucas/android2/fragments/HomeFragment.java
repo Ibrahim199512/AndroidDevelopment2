@@ -8,9 +8,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.ucas.android2.EventBus.MyEvent;
 import com.ucas.android2.R;
+import com.ucas.android2.databinding.FragmentHomeBinding;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -29,6 +31,8 @@ public class HomeFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private FragmentHomeBinding binding;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -63,16 +67,17 @@ public class HomeFragment extends Fragment {
         }
     }
 
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
-        view.findViewById(R.id.text).setOnClickListener(new View.OnClickListener() {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        binding = binding.inflate(inflater, container, false);
+        View view = binding.getRoot();
+        binding.text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Notifications Number
                 EventBus.getDefault().post(new MyEvent(5, 0));
+                Log.d("TAG", "Done");
             }
         });
         return view;

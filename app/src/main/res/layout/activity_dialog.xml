@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.DialogActivity">
+
+
+    <Button
+        android:id="@+id/show_alert_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Show Alert Dialog" />
+
+    <Button
+        android:id="@+id/close_alert_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/show_alert_dialog"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:text="Close Alert Dialog" />
+
+    <Button
+        android:id="@+id/show_custom_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/close_alert_dialog"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:text="Show Custom Dialog" />
+
+    <Button
+        android:id="@+id/show_custom_dialog_from_outer_class"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/show_custom_dialog"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:text="Show Custom Dialog From Outer Class" />
+</RelativeLayout>

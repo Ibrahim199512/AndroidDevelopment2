@@ -18,13 +18,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.selectImageFromGalleryActivity">
+        <activity android:name=".activities.DialogActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activities.TestActivity"></activity>
+        <activity android:name=".activities.selectImageFromGalleryActivity"></activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -39,11 +41,9 @@
 
         <activity
             android:name=".activities.MapExampleActivity"
-            android:label="@string/title_activity_map_example">
-
-        </activity>
+            android:label="@string/title_activity_map_example" />
         <activity android:name=".activities.RoomDatabaseExample2Activity" />
-        <activity android:name=".activities.RoomDatabaseSimpleExampleActivity"></activity>
+        <activity android:name=".activities.RoomDatabaseSimpleExampleActivity" />
         <activity android:name=".activities.NavigationDrawerActivity" />
         <activity android:name=".activities.TabLayoutActivity" />
 
@@ -53,7 +53,7 @@
             android:exported="true" />
 
         <activity android:name=".service_problem.ServiceActivity" />
-        <activity android:name=".activities.BottomNavigationBarActivity" />
+        <activity android:name=".activities.BottomNavigationBarActivity"></activity>
         <activity android:name=".activities.FragmentsActivity" />
         <activity android:name=".activities.MainActivity3" />
         <activity android:name=".activities.ErrorsActivity" />
@@ -91,7 +91,9 @@
         <activity android:name=".activities.BroadcastReceiverActivity" />
         <activity android:name=".activities.MultipleItemsActivity" />
         <activity android:name=".activities.ImageGridLayoutManagerActivity" />
-        <activity android:name=".activities.RecyclerViewActivity" />
+        <activity android:name=".activities.RecyclerViewActivity">
+
+        </activity>
         <activity android:name=".activities.MainActivity2" />
         <activity android:name=".activities.MainActivity" />
     </application>
