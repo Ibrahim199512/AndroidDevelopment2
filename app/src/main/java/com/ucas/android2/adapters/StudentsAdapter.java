@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ucas.android2.R;
+import com.ucas.android2.databinding.SutdentItemBinding;
 import com.ucas.android2.interfaces.StudentInterface;
 import com.ucas.android2.modules.Student;
 
@@ -21,16 +22,15 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.MyView
     StudentInterface studentInterface;
 
     class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView name, age;
+        SutdentItemBinding binding;
 
-        public MyViewHolder(@NonNull View itemView) {
-            super(itemView);
-            name = itemView.findViewById(R.id.name);
-            age = itemView.findViewById(R.id.age);
+        public MyViewHolder(SutdentItemBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
         }
     }
 
-    public StudentsAdapter(ArrayList<Student> studentsList,StudentInterface studentInterface) {
+    public StudentsAdapter(ArrayList<Student> studentsList, StudentInterface studentInterface) {
         this.studentsList = studentsList;
         this.studentInterface = studentInterface;
     }
@@ -38,19 +38,18 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.MyView
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.sutdent_item, parent, false);
-        MyViewHolder myViewHolder = new MyViewHolder(view);
-        return myViewHolder;
+        SutdentItemBinding binding = SutdentItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
+        return new MyViewHolder(binding);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
-        holder.name.setText(studentsList.get(position).getName());
-        holder.age.setText(studentsList.get(position).getAge());
-        holder.name.setOnClickListener(new View.OnClickListener() {
+        holder.binding.name.setText(studentsList.get(position).getName());
+        holder.binding.age.setText(studentsList.get(position).getAge());
+        holder.binding.name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                studentInterface.sendSomeText(""+studentsList.get(position).getName());
+                studentInterface.sendSomeText("" + studentsList.get(position).getName());
             }
         });
         Log.d("position", position + "");
